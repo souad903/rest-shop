@@ -1,0 +1,28 @@
+{
+  "name": "rest-shop",
+  "version": "1.0.0",
+  "description": "Une Rest API magasin en ligne",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souad903/rest-shop.git"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "Souad Ourak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/souad903/rest-shop/issues"
+  },
+  "homepage": "https://github.com/souad903/rest-shop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
