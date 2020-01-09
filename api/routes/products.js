@@ -1,37 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
+const productController = require('../controllers/products');
+
 // GET /products
-router.get('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'Handling GET requests to /products'
-  });
-});
+router.get('/', productController.getProducts);
 
-router.post('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'Handling POST requests to /products'
-  });
-});
+// POST /products
+router.post('/', productController.createProduct);
 
-router.get('/:productId', (req, res, next) => {
-  const id = req.params.productId;
-  if (id === 'special') {
-    res.status(200).json({
-      message: 'You discovered the special ID'
-    });
-  }
-});
+// GET /products/:productId
+router.get('/:productId', productController.getProduct);
 
-router.patch('/:productId', (req, res, next) => {
-  res.status(200).json({
-    message: 'Updated product'
-  });
-});
+// PATCH /products/:productId
+router.patch('/:productId', productController.updateProduct);
 
-router.delete('/:productId', (req, res, next) => {
-  res.status(200).json({
-    message: 'Deleted product'
-  });
-});
+// DELETE /products/:productId
+router.delete('/:productId', productController.deleteProduct);
+
 module.exports = router;
