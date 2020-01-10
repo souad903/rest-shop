@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const MONGODB_URI =
+  'mongodb+srv://shop:' +
+  process.env.MONGO_ATLAS_PW +
+  '@cluster0-ofjpi.mongodb.net/shop';
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -40,4 +46,12 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(port);
+mongoose
+  .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(result => {
+    console.log('Le serveur est démaré ');
+    app.listen(port);
+  })
+  .catch(err => {
+    console.log(err);
+  });
